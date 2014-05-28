@@ -1,0 +1,35 @@
+<?php
+
+/* @file
+ * Create administration pages for our forms.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function uc_flexible_subscriptions_menu() {
+  $items = array();
+
+  $items['admin/settings/manage-subscriptions/renew-by-role'] = array(
+    'title' => 'Update Subscription Dates by Role',
+    'description' => 'Change subscription renewals based on a customer role.',
+    'access arguments' => array('manage subscriptions'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('uc_role_renew_admin_form'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'uc_flexible_subscriptions.admin.inc',
+  );
+
+  $items['admin/settings/manage-subscriptions/file-to-role'] = array(
+    'title' => 'Grant Product Files to a User Role',
+    'description' => 'Specify a product and grant all of the attached files to all customers of a role.',
+    'access arguments' => array('manage subscriptions'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('uc_grant_file_admin_form'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'uc_flexible_subscriptions.admin.inc',
+  );
+
+  return $items;
+}
+

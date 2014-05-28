@@ -1,0 +1,6 @@
+name = UC Manage Subscriptions
+description = A module to allow end user administrators to update Ubercart subscriptions by role.
+core = 6.x
+package = custom
+dependencies[] = uc_recurring
+dependencies[] = uc_file
